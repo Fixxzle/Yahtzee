@@ -13,6 +13,7 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.widgets.Text;
 
 public class Yahtzee {
 
@@ -24,6 +25,24 @@ public class Yahtzee {
 		boolean unlocked5 = true;
 	
 	protected Shell shell;
+	private Text text_4;
+	private Text text_1;
+	private Text text;
+	private Text text_2;
+	private Text text_3;
+	private Text text_5;
+	private Text text_6;
+	private Text text_7;
+	private Text text_8;
+	private Text text_9;
+	private Text text_10;
+	private Text text_11;
+	private Text text_12;
+	private Text text_13;
+	private Text text_14;
+	private Text text_15;
+	private Text text_16;
+	private Text text_17;
 
 	/**
 	 * Launch the application.
@@ -68,23 +87,23 @@ public class Yahtzee {
 		
 		Label label1 = new Label(shell, SWT.NONE);
 		label1.setText("0");
-		label1.setBounds(339, 676, 19, 25);
+		label1.setBounds(616, 676, 19, 25);
 		
 		Label label2 = new Label(shell, SWT.NONE);
 		label2.setText("0");
-		label2.setBounds(379, 676, 19, 25);
+		label2.setBounds(655, 676, 19, 25);
 		
 		Label label3 = new Label(shell, SWT.NONE);
 		label3.setText("0");
-		label3.setBounds(422, 676, 19, 25);
+		label3.setBounds(691, 676, 19, 25);
 		
 		Label label4 = new Label(shell, SWT.NONE);
 		label4.setText("0");
-		label4.setBounds(468, 676, 19, 25);
+		label4.setBounds(729, 676, 19, 25);
 		
 		Label label5 = new Label(shell, SWT.NONE);
 		label5.setText("0");
-		label5.setBounds(510, 676, 19, 25);
+		label5.setBounds(770, 676, 19, 25);
 		
 		Button btnRoll = new Button(shell, SWT.NONE);
 		
@@ -117,7 +136,7 @@ public class Yahtzee {
 		
 		//buttons
 		
-		btnRoll.setBounds(188, 702, 91, 35);
+		btnRoll.setBounds(497, 707, 91, 35);
 		btnRoll.setText("Roll");
 		
 		
@@ -137,7 +156,7 @@ public class Yahtzee {
 		
 	
 		
-		btnCheckButton.setBounds(339, 707, 19, 25);
+		btnCheckButton.setBounds(616, 712, 19, 25);
 		btnCheckButton.setText("");
 		
 		Button btnCheckButton1 = new Button(shell, SWT.CHECK);
@@ -154,7 +173,7 @@ public class Yahtzee {
 			}
 		});
 		
-		btnCheckButton1.setBounds(379, 707, 19, 25);
+		btnCheckButton1.setBounds(655, 712, 19, 25);
 		btnCheckButton1.setText("");
 		
 		
@@ -174,7 +193,7 @@ public class Yahtzee {
 			}
 		});
 		btnCheckButton2.setText("");
-		btnCheckButton2.setBounds(422, 707, 19, 25);
+		btnCheckButton2.setBounds(691, 712, 19, 25);
 		
 		
 		
@@ -193,7 +212,7 @@ public class Yahtzee {
 		});
 		
 		btnCheckButton3.setText("");
-		btnCheckButton3.setBounds(468, 707, 19, 25);
+		btnCheckButton3.setBounds(729, 712, 19, 25);
 		
 		
 		
@@ -212,7 +231,7 @@ public class Yahtzee {
 		});
 		
 		btnCheckButton4.setText("");
-		btnCheckButton4.setBounds(510, 707, 19, 25);
+		btnCheckButton4.setBounds(770, 712, 19, 25);
 		
 		
 		
@@ -221,6 +240,132 @@ public class Yahtzee {
 		Label lblWelcomeToYahtzee = new Label(shell, SWT.NONE);
 		lblWelcomeToYahtzee.setBounds(322, 10, 179, 25);
 		lblWelcomeToYahtzee.setText("Welcome to Yahtzee!");
+		
+		Label lblNewLabel = new Label(shell, SWT.NONE);
+		lblNewLabel.setBounds(10, 44, 81, 25);
+		lblNewLabel.setText("Ones");
+		
+		Label label = new Label(shell, SWT.NONE);
+		label.setText("Twos");
+		label.setBounds(10, 75, 81, 25);
+		
+		Label label_1 = new Label(shell, SWT.NONE);
+		label_1.setText("Threes");
+		label_1.setBounds(10, 110, 81, 25);
+		
+		Label label_2 = new Label(shell, SWT.NONE);
+		label_2.setText("Fours");
+		label_2.setBounds(10, 151, 81, 25);
+		
+		Label label_3 = new Label(shell, SWT.NONE);
+		label_3.setText("Fives");
+		label_3.setBounds(10, 195, 81, 25);
+		
+		Label label_4 = new Label(shell, SWT.NONE);
+		label_4.setText("Sixes");
+		label_4.setBounds(10, 235, 81, 25);
+		
+		Label label_5 = new Label(shell, SWT.NONE);
+		label_5.setText("Bonus");
+		label_5.setBounds(10, 275, 81, 25);
+		
+		Label label_6 = new Label(shell, SWT.NONE);
+		label_6.setText("Total");
+		label_6.setBounds(10, 327, 81, 25);
+		
+		Label label_7 = new Label(shell, SWT.NONE);
+		label_7.setText("3 of a Kind");
+		label_7.setBounds(10, 399, 98, 25);
+		
+		Label label_8 = new Label(shell, SWT.NONE);
+		label_8.setText("4 of a King");
+		label_8.setBounds(10, 442, 98, 25);
+		
+		Label label_9 = new Label(shell, SWT.NONE);
+		label_9.setText("Full House");
+		label_9.setBounds(10, 489, 98, 25);
+		
+		Label label_10 = new Label(shell, SWT.NONE);
+		label_10.setText("Sm Straight");
+		label_10.setBounds(10, 533, 98, 25);
+		
+		Label label_11 = new Label(shell, SWT.NONE);
+		label_11.setText("Lg Straight");
+		label_11.setBounds(10, 574, 98, 25);
+		
+		Label label_12 = new Label(shell, SWT.NONE);
+		label_12.setText("YAHTZEE");
+		label_12.setBounds(10, 620, 81, 25);
+		
+		Label lblNewLabel_1 = new Label(shell, SWT.NONE);
+		lblNewLabel_1.setBounds(10, 664, 122, 25);
+		lblNewLabel_1.setText("Bonus Yahtzee");
+		
+		Label label_13 = new Label(shell, SWT.NONE);
+		label_13.setText("Top Total");
+		label_13.setBounds(10, 707, 98, 25);
+		
+		Label label_14 = new Label(shell, SWT.NONE);
+		label_14.setText("Bottom Total");
+		label_14.setBounds(10, 738, 122, 25);
+		
+		Label label_15 = new Label(shell, SWT.NONE);
+		label_15.setText("Total");
+		label_15.setBounds(10, 779, 109, 25);
+		
+		text_4 = new Text(shell, SWT.BORDER);
+		text_4.setBounds(135, 620, 80, 25);
+		
+		text_1 = new Text(shell, SWT.BORDER);
+		text_1.setBounds(135, 743, 80, 25);
+		
+		text = new Text(shell, SWT.BORDER);
+		text.setBounds(135, 779, 80, 25);
+		
+		text_2 = new Text(shell, SWT.BORDER);
+		text_2.setBounds(135, 707, 80, 25);
+		
+		text_3 = new Text(shell, SWT.BORDER);
+		text_3.setBounds(135, 664, 80, 25);
+		
+		text_5 = new Text(shell, SWT.BORDER);
+		text_5.setBounds(135, 574, 80, 25);
+		
+		text_6 = new Text(shell, SWT.BORDER);
+		text_6.setBounds(135, 533, 80, 25);
+		
+		text_7 = new Text(shell, SWT.BORDER);
+		text_7.setBounds(135, 489, 80, 25);
+		
+		text_8 = new Text(shell, SWT.BORDER);
+		text_8.setBounds(135, 442, 80, 25);
+		
+		text_9 = new Text(shell, SWT.BORDER);
+		text_9.setBounds(135, 399, 80, 25);
+		
+		text_10 = new Text(shell, SWT.BORDER);
+		text_10.setBounds(135, 327, 80, 25);
+		
+		text_11 = new Text(shell, SWT.BORDER);
+		text_11.setBounds(135, 275, 80, 25);
+		
+		text_12 = new Text(shell, SWT.BORDER);
+		text_12.setBounds(135, 235, 80, 25);
+		
+		text_13 = new Text(shell, SWT.BORDER);
+		text_13.setBounds(135, 195, 80, 25);
+		
+		text_14 = new Text(shell, SWT.BORDER);
+		text_14.setBounds(135, 151, 80, 25);
+		
+		text_15 = new Text(shell, SWT.BORDER);
+		text_15.setBounds(135, 110, 80, 25);
+		
+		text_16 = new Text(shell, SWT.BORDER);
+		text_16.setBounds(135, 75, 80, 25);
+		
+		text_17 = new Text(shell, SWT.BORDER);
+		text_17.setBounds(135, 44, 80, 25);
 		
 
 		
@@ -235,7 +380,5 @@ public class Yahtzee {
 		
 		
 	}
-	
-	
 }
 
