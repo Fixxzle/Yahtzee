@@ -8,14 +8,21 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.events.TouchListener;
-import org.eclipse.swt.events.TouchEvent;
+//import org.eclipse.swt.events.TouchListener;
+//import org.eclipse.swt.events.TouchEvent;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 
 public class Yahtzee {
 
+	
+	 boolean unlocked1 = true;
+		boolean unlocked2 = true;
+		boolean unlocked3 = true;
+		boolean unlocked4 = true;
+		boolean unlocked5 = true;
+	
 	protected Shell shell;
 
 	/**
@@ -54,29 +61,30 @@ public class Yahtzee {
 		shell.setSize(900, 900);
 		shell.setText("Yahtzee");
 
-		boolean unlocked1 = true;
-		boolean unlocked2 = true;
-		boolean unlocked3 = true;
-		boolean unlocked4 = true;
-		boolean unlocked5 = true;
+	   
 		
 		Menu menu = new Menu(shell, SWT.BAR);
 		shell.setMenuBar(menu);
 		
 		Label label1 = new Label(shell, SWT.NONE);
-		label1.setBounds(322, 666, 25, 25);
+		label1.setText("0");
+		label1.setBounds(339, 676, 19, 25);
 		
 		Label label2 = new Label(shell, SWT.NONE);
-		label2.setBounds(361, 666, 25, 25);
+		label2.setText("0");
+		label2.setBounds(379, 676, 19, 25);
 		
 		Label label3 = new Label(shell, SWT.NONE);
-		label3.setBounds(403, 666, 25, 25);
+		label3.setText("0");
+		label3.setBounds(422, 676, 19, 25);
 		
 		Label label4 = new Label(shell, SWT.NONE);
-		label4.setBounds(450, 666, 25, 25);
+		label4.setText("0");
+		label4.setBounds(468, 676, 19, 25);
 		
 		Label label5 = new Label(shell, SWT.NONE);
-		label5.setBounds(494, 666, 25, 25);
+		label5.setText("0");
+		label5.setBounds(510, 676, 19, 25);
 		
 		Button btnRoll = new Button(shell, SWT.NONE);
 		
@@ -107,42 +115,107 @@ public class Yahtzee {
 			}
 		});
 		
-		
+		//buttons
 		
 		btnRoll.setBounds(188, 702, 91, 35);
 		btnRoll.setText("Roll");
 		
 		
-		
-		
-		
 		Button btnCheckButton = new Button(shell, SWT.CHECK);
 		btnCheckButton.addSelectionListener(new SelectionAdapter() {
 			@Override
-			public void widgetDefaultSelected(SelectionEvent e) {
-				
+			public void widgetSelected(SelectionEvent event) {
+				Button btnCheckButton = (Button) event.getSource();
+				if(btnCheckButton.getSelection() == true) {
+					
+				unlocked1 = false;
+				}else{
+					unlocked1 = true;
+				}
 			}
 		});
 		
+	
 		
-		btnCheckButton.setBounds(344, 707, 19, 25);
+		btnCheckButton.setBounds(339, 707, 19, 25);
 		btnCheckButton.setText("");
 		
-		Button btnCheckButton_1 = new Button(shell, SWT.CHECK);
-		btnCheckButton_1.setBounds(386, 707, 19, 25);
-		btnCheckButton_1.setText("");
+		Button btnCheckButton1 = new Button(shell, SWT.CHECK);
+		btnCheckButton1.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent event) {
+				Button btnCheckButton1 = (Button) event.getSource();
+				if(btnCheckButton1.getSelection() == true) {
+					
+				unlocked2 = false;
+				}else{
+					unlocked2 = true;
+				}
+			}
+		});
 		
-		Button button = new Button(shell, SWT.CHECK);
-		button.setText("");
-		button.setBounds(422, 707, 19, 25);
+		btnCheckButton1.setBounds(379, 707, 19, 25);
+		btnCheckButton1.setText("");
 		
-		Button button_1 = new Button(shell, SWT.CHECK);
-		button_1.setText("");
-		button_1.setBounds(468, 707, 19, 25);
 		
-		Button button_2 = new Button(shell, SWT.CHECK);
-		button_2.setText("");
-		button_2.setBounds(510, 707, 19, 25);
+		
+		
+		Button btnCheckButton2 = new Button(shell, SWT.CHECK);
+		btnCheckButton2.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent event) {
+				Button btnCheckButton2 = (Button) event.getSource();
+				if(btnCheckButton2.getSelection() == true) {
+					
+				unlocked3 = false;
+				}else{
+					unlocked3 = true;
+				}
+			}
+		});
+		btnCheckButton2.setText("");
+		btnCheckButton2.setBounds(422, 707, 19, 25);
+		
+		
+		
+		Button btnCheckButton3 = new Button(shell, SWT.CHECK);
+		btnCheckButton3.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent event) {
+				Button btnCheckButton3 = (Button) event.getSource();
+				if(btnCheckButton3.getSelection() == true) {
+					
+				unlocked4 = false;
+				}else{
+					unlocked4 = true;
+				}
+			}
+		});
+		
+		btnCheckButton3.setText("");
+		btnCheckButton3.setBounds(468, 707, 19, 25);
+		
+		
+		
+		Button btnCheckButton4 = new Button(shell, SWT.CHECK);
+		btnCheckButton4.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent event) {
+				Button btnCheckButton4 = (Button) event.getSource();
+				if(btnCheckButton4.getSelection() == true) {
+					
+				unlocked5 = false;
+				}else{
+					unlocked5 = true;
+				}
+			}
+		});
+		
+		btnCheckButton4.setText("");
+		btnCheckButton4.setBounds(510, 707, 19, 25);
+		
+		
+		
 		
 		
 		Label lblWelcomeToYahtzee = new Label(shell, SWT.NONE);
