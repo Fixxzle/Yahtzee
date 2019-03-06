@@ -14,32 +14,33 @@ import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Text;
 
+
 public class Yahtzee {
 
 
-	//Unlocked 1-5 control whether the check buttons are checked
-	boolean unlocked1 = true;
-	boolean unlocked2 = true;
-	boolean unlocked3 = true;
-	boolean unlocked4 = true;
-	boolean unlocked5 = true;
 	
 	//checkBonusUnlocked checks whether or not you are eligible for a bonus
 	boolean checkBonusUnlocked = true;
 	
-	//FIX ME: rollCount will display the amount of times you've rolled
-	int rollcount = 0;
 	
-	//FIX ME: roundNumber will tell you what round you are on
-	// big logic here
-	int roundNumber;
+	//the amount of times you've rolled
+	int rollCount = 0;
 	
+	
+	
+	//what round the user is on
+	int roundNumber = 0;
 
 
+	
+
+	
+	
+	
 	protected Shell shell;
 
 	// Declaration of text fields where user will enter data
-	private Text yahtzee, chance, lgStr, smStr, boat, fourOfAKind, threeOfAKind, sixes, fives, fours, threes, twos,
+	public Text yahtzee, chance, lgStr, smStr, boat, fourOfAKind, threeOfAKind, sixes, fives, fours, threes, twos,
 			ones, bonusYahtzee;
 
 	/**
@@ -72,6 +73,7 @@ public class Yahtzee {
 			}
 		}
 	}
+	
 
 	/**
 	 * Create contents of the window.
@@ -80,10 +82,23 @@ public class Yahtzee {
 		shell = new Shell();
 		shell.setSize(980, 682);
 		shell.setText("Yahtzee");
+		
+		
+		//Initialization of the buttons for the die 
+		Button cb1 = new Button(shell, SWT.CHECK);
+		Button cb2 = new Button(shell, SWT.CHECK);
+		Button cb3 = new Button(shell, SWT.CHECK);	
+		Button cb4 = new Button(shell, SWT.CHECK);
+		Button cb5 = new Button(shell, SWT.CHECK);
 
+		
+		//FIX ME: MENU 
 		Menu menu = new Menu(shell, SWT.BAR);
 		shell.setMenuBar(menu);
 
+		
+		Button btnNewRoll = new Button(shell, SWT.NONE);
+		
 		
 		//first die
 		Label lblDie1 = new Label(shell, SWT.NONE);
@@ -113,8 +128,13 @@ public class Yahtzee {
 
 		//roll count label
 		Label lblRollCount = new Label(shell, SWT.NONE);
-		lblRollCount.setBounds(793, 10, 32, 25);
+		lblRollCount.setBounds(809, 10, 32, 25);
 		lblRollCount.setText("0");
+		
+		//round Number label
+		Label lblRoundNumber = new Label(shell, SWT.NONE);
+		lblRoundNumber.setText("0");
+		lblRoundNumber.setBounds(809, 41, 32, 25);
 
 		//initialize the button that rolls the die
 		Button btnRoll = new Button(shell, SWT.NONE);
@@ -124,122 +144,120 @@ public class Yahtzee {
 			// this is the logic for the die, randomly gives the labels a value from 1-6
 			@Override
 			public void mouseUp(MouseEvent e) {
-				if (unlocked1) {
+				if (cb1.getSelection() == false) {
 					lblDie1.setText(((int) (6 * Math.random()) + 1) + "");
 				}
-				if (unlocked2) {
+				if (cb2.getSelection() == false) {
 					lblDie2.setText(((int) (6 * Math.random()) + 1) + "");
 				}
-				if (unlocked3) {
+				if (cb3.getSelection() == false) {
 					lblDie3.setText(((int) (6 * Math.random()) + 1) + "");
 				}
-				if (unlocked4) {
+				if (cb4.getSelection() == false) {
 					lblDie4.setText(((int) (6 * Math.random()) + 1) + "");
 				}
-				if (unlocked5) {
+				if (cb5.getSelection() == false) {
 					lblDie5.setText(((int) (6 * Math.random()) + 1) + "");
 				}
-				if (rollcount < 14) {
-					lblRollCount.setText(rollcount++ + "");
-
+				
+				
+			
+				rollCount++;
+				
+				
+				
+			
+				
+			//FIX ME: Add logic to now allow user to roll  no more than twice in one round, but if the
+				
+				if(rollCount == 1) {
+		
+					String rollCountString = Integer.toString(rollCount);
+					lblRollCount.setText(rollCountString);
+					
+				}else if(rollCount == 2) {
+					
+					rollCount = 2;
+					
+					
+					String rollCountString = Integer.toString(rollCount);
+					lblRollCount.setText(rollCountString);
+			
+				}else if(rollCount > 2){
+					
+					//FIX ME: Display error on screen
+					System.out.println("Please enter data and press new Round!" );
 				}
-
-			}
+					
+				
+				
+				
+				
+			
+				
+				
+				}
 		});
 
-		btnRoll.setBounds(750, 81, 91, 35);
+		btnRoll.setBounds(809, 81, 91, 35);
 		btnRoll.setText("Roll");
 
-		//initializing check button
-		Button btnCheckButton = new Button(shell, SWT.CHECK);
-		btnCheckButton.addSelectionListener(new SelectionAdapter() {
+		
+		
+		cb1.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent event) {
-				Button btnCheckButton = (Button) event.getSource();
-				if (btnCheckButton.getSelection() == true) {
-
-					unlocked1 = false;
-				} else {
-					unlocked1 = true;
-				}
+				
 			}
 		});
 
-		btnCheckButton.setBounds(699, 180, 19, 25);
-		btnCheckButton.setText("");
+		cb1.setBounds(699, 180, 19, 25);
+		cb1.setText("");
 
-		//initializing check button
-		Button btnCheckButton1 = new Button(shell, SWT.CHECK);
-		btnCheckButton1.addSelectionListener(new SelectionAdapter() {
+	
+		
+		cb2.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent event) {
-				Button btnCheckButton1 = (Button) event.getSource();
-				if (btnCheckButton1.getSelection() == true) {
-
-					unlocked2 = false;
-				} else {
-					unlocked2 = true;
-				}
+		
 			}
 		});
 
-		btnCheckButton1.setBounds(738, 180, 19, 25);
-		btnCheckButton1.setText("");
-
-		//initializing check button
-		Button btnCheckButton2 = new Button(shell, SWT.CHECK);
-		btnCheckButton2.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent event) {
-				Button btnCheckButton2 = (Button) event.getSource();
-				if (btnCheckButton2.getSelection() == true) {
-
-					unlocked3 = false;
-				} else {
-					unlocked3 = true;
-				}
-			}
-		});
-		btnCheckButton2.setText("");
-		btnCheckButton2.setBounds(779, 180, 19, 25);
-
-		//initializing check button
-		Button btnCheckButton3 = new Button(shell, SWT.CHECK);
-		btnCheckButton3.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent event) {
-				Button btnCheckButton3 = (Button) event.getSource();
-				if (btnCheckButton3.getSelection() == true) {
-
-					unlocked4 = false;
-				} else {
-					unlocked4 = true;
-				}
-			}
-		});
-
-		btnCheckButton3.setText("");
-		btnCheckButton3.setBounds(822, 180, 19, 25);
-
-		//initializing check button
-		Button btnCheckButton4 = new Button(shell, SWT.CHECK);
-		btnCheckButton4.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent event) {
-				Button btnCheckButton4 = (Button) event.getSource();
-				if (btnCheckButton4.getSelection() == true) {
-
-					unlocked5 = false;
-				} else {
-					unlocked5 = true;
-				}
-			}
-		});
-
-		btnCheckButton4.setText("");
-		btnCheckButton4.setBounds(863, 180, 19, 25);
+		cb2.setBounds(738, 180, 19, 25);
+		cb2.setText("");
 
 		
+		cb3.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent event) {
+
+			}
+		});
+		cb3.setText("");
+		cb3.setBounds(779, 180, 19, 25);
+
+		
+		cb4.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent event) {
+		
+			}
+		});
+
+		cb4.setText("");
+		cb4.setBounds(822, 180, 19, 25);
+
+		
+		cb5.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent event) {
+				
+			}
+		});
+
+		cb5.setText("");
+		cb5.setBounds(863, 180, 19, 25);
+
 		
 		//welcome label
 		Label lblWelcomeToYahtzee = new Label(shell, SWT.NONE);
@@ -399,9 +417,9 @@ public class Yahtzee {
 		label_7.setText("Scoring");
 		label_7.setBounds(467, 55, 81, 25);
 
-		Label lblRoundsLeft = new Label(shell, SWT.NONE);
-		lblRoundsLeft.setBounds(665, 10, 122, 25);
-		lblRoundsLeft.setText("Rounds Left:");
+		Label lblRollNumber = new Label(shell, SWT.NONE);
+		lblRollNumber.setBounds(665, 10, 122, 25);
+		lblRollNumber.setText("Roll Number:");
 		
 		//..
 
@@ -636,6 +654,91 @@ public class Yahtzee {
 		});
 		grandAdd.setText("Add");
 		grandAdd.setBounds(272, 524, 59, 35);
+		
+		
+		btnNewRoll.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				roundNumber++; 
+				rollCount = 0;
+				
+				String rollCountString = Integer.toString(rollCount);
+				lblRollCount.setText(rollCountString);
+				
+				if(cb1.getSelection() == true || cb2.getSelection() == true || cb3.getSelection() == true || cb4.getSelection() == true || cb5.getSelection() == true) {
+					cb1.setSelection(false);
+	
+					cb2.setSelection(false);
+		
+					cb3.setSelection(false);
+				
+					cb4.setSelection(false);
+				
+					cb5.setSelection(false);
+				}
+		
+				
+ 			
+	
+		
+				
+				lblDie1.setText(((int) (6 * Math.random()) + 1) + "");
+				lblDie2.setText(((int) (6 * Math.random()) + 1) + "");
+				lblDie3.setText(((int) (6 * Math.random()) + 1) + "");
+				lblDie4.setText(((int) (6 * Math.random()) + 1) + "");
+				lblDie5.setText(((int) (6 * Math.random()) + 1) + "");
+				
+				
+				String roundNumberString = Integer.toString(roundNumber);
+				lblRoundNumber.setText(roundNumberString);
+				
+				
+			}
+		});
+		btnNewRoll.setText("New Round");
+		btnNewRoll.setBounds(689, 81, 98, 35);
+		
+		Label lblRN = new Label(shell, SWT.NONE);
+		lblRN.setBounds(665, 41, 133, 25);
+		lblRN.setText("Round Number:");
+		
+		Button btnNewGame = new Button(shell, SWT.NONE);
+		btnNewGame.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				yahtzee.setText("");
+				chance.setText("");
+				lgStr.setText(""); 
+				smStr.setText(""); 
+				boat.setText(""); 
+				fourOfAKind.setText(""); 
+				threeOfAKind.setText(""); 
+				sixes.setText(""); 
+				fives.setText(""); 
+				fours.setText(""); 
+				threes.setText(""); 
+				twos.setText("");
+				ones.setText("");
+				bonusYahtzee.setText("");
+				
+				checkBonus.setText("0");
+				lblLeftTotalValue.setText("0");
+				lblRightTotalValue.setText("0");
+				lblGrandTotalValue.setText("0");
+				lblRollCount.setText("0");
+				lblRoundNumber.setText("0");
+				lblDie1.setText("0");
+				lblDie2.setText("0");
+				lblDie3.setText("0");
+				lblDie4.setText("0");
+				lblDie5.setText("0");
+			}
+		});
+		
+		btnNewGame.setBounds(759, 524, 105, 35);
+		btnNewGame.setText("New Game");
+		
+	
 
 		/*
 		*/
