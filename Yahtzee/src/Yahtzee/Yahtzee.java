@@ -53,7 +53,7 @@ public class Yahtzee {
 * @param args Y 
 */
 
-  public static void main(String[] args) {
+  void main(final String[] args) {
     try {
       Yahtzee window = new Yahtzee();
       window.open();
@@ -149,7 +149,7 @@ public class Yahtzee {
 //Initialization of the buttons for the die 
 
 
-public void mouseUp(MouseEvent e) {
+public void mouseUp(final MouseEvent e) {
         if (cb1.getSelection() == false) {
           lblDie1.setText(((int) (6 * Math.random()) + 1) + "");
         }
@@ -198,7 +198,7 @@ public void mouseUp(MouseEvent e) {
 
     cb1.addSelectionListener(new SelectionAdapter() {
       @Override
-public void widgetSelected(SelectionEvent event) {
+public void widgetSelected(final SelectionEvent event) {
 
         }
     });
@@ -207,7 +207,7 @@ public void widgetSelected(SelectionEvent event) {
 
     cb2.addSelectionListener(new SelectionAdapter() {
       @Override
-public void widgetSelected(SelectionEvent event) {
+public void widgetSelected(final SelectionEvent event) {
         }
     });
 
@@ -216,7 +216,7 @@ public void widgetSelected(SelectionEvent event) {
 
     cb3.addSelectionListener(new SelectionAdapter() {
       @Override
-public void widgetSelected(SelectionEvent event) {
+public void widgetSelected(final SelectionEvent event) {
         }
     });
     cb3.setText("");
@@ -224,7 +224,7 @@ public void widgetSelected(SelectionEvent event) {
 
     cb4.addSelectionListener(new SelectionAdapter() {
       @Override
-public void widgetSelected(SelectionEvent event) {
+public void widgetSelected(final SelectionEvent event) {
         }
     });
     cb4.setText("");
@@ -232,7 +232,7 @@ public void widgetSelected(SelectionEvent event) {
 
     cb5.addSelectionListener(new SelectionAdapter() {
       @Override
-public void widgetSelected(SelectionEvent event) {
+public void widgetSelected(final SelectionEvent event) {
         }
     });
 
@@ -456,7 +456,7 @@ public void widgetSelected(SelectionEvent event) {
     Button btnCheck = new Button(shell, SWT.NONE);
     btnCheck.addSelectionListener(new SelectionAdapter() {
       @Override
-public void widgetSelected(SelectionEvent e) {
+public void widgetSelected(final SelectionEvent e) {
 
 
         //change all of the strings into integers
@@ -503,7 +503,7 @@ public void widgetSelected(SelectionEvent e) {
     Button leftAdd = new Button(shell, SWT.NONE);
     leftAdd.addSelectionListener(new SelectionAdapter() {
       @Override
-public void widgetSelected(SelectionEvent e) {
+public void widgetSelected(final SelectionEvent e) {
 
         //change all of the users strings into integers
         int onesValue = Integer.parseInt(ones.getText().toString());
@@ -545,7 +545,7 @@ public void widgetSelected(SelectionEvent e) {
     Button rightAdd = new Button(shell, SWT.NONE);
     rightAdd.addSelectionListener(new SelectionAdapter() {
       @Override
-public void widgetSelected(SelectionEvent e) {
+public void widgetSelected(final SelectionEvent e) {
 
         //changing all the string user input to integers to be added
         int threeKindValue = Integer.parseInt(threeOfAKind.getText().toString());
@@ -582,7 +582,7 @@ public void widgetSelected(SelectionEvent e) {
     Button grandAdd = new Button(shell, SWT.NONE);
     grandAdd.addSelectionListener(new SelectionAdapter() {
       @Override
-public void widgetSelected(SelectionEvent e) {
+public void widgetSelected(final SelectionEvent e) {
 
         int onesValue = Integer.parseInt(ones.getText().toString());
         int twosValue = Integer.parseInt(twos.getText().toString());
@@ -633,7 +633,7 @@ public void widgetSelected(SelectionEvent e) {
 
     btnNewRoll.addSelectionListener(new SelectionAdapter() {
       @Override
-public void widgetSelected(SelectionEvent e) {
+public void widgetSelected(final SelectionEvent e) {
         roundNumber++;
         rollCount = 0;
 
@@ -668,7 +668,7 @@ public void widgetSelected(SelectionEvent e) {
 
     btnNewGame.addSelectionListener(new SelectionAdapter() {
       @Override
-public void widgetSelected(SelectionEvent e) {
+public void widgetSelected(final SelectionEvent e) {
         yahtzee.setText("");
         chance.setText("");
         lgStr.setText(""); 
